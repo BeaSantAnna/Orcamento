@@ -1,9 +1,12 @@
 package com.orcamento.orcamentos.entity;
 
+import java.util.Set;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -14,7 +17,7 @@ public class Produto {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idProduto;
 	private String nomeProduto;
-	private Double valor;
+	private double valor;
 	private String descricao;
 	private byte[] fotosProduto;
 	
@@ -50,4 +53,6 @@ public class Produto {
 	}
 	
 	//Relacionamentos
+	 @OneToMany(mappedBy = "produto")
+	 private Set<ItemSelecao> itensSelecao;
 }

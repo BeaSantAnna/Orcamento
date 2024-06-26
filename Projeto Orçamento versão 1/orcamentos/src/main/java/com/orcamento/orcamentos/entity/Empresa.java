@@ -1,9 +1,12 @@
 package com.orcamento.orcamentos.entity;
 
+import java.util.Set;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -21,6 +24,7 @@ public class Empresa {
 	private byte[] logoEmpresa;
 	private String emailEmpresa;
 	private String telefoneEmpresa;
+	
 	public Long getIdEmpresa() {
 		return idEmpresa;
 	}
@@ -77,5 +81,6 @@ public class Empresa {
 	}
 	
 	//Relacionamento
-	//private Orcamento orcamento;
+	@OneToMany(mappedBy = "empresa")
+    private Set<Orcamento> orcamentos;
 }
