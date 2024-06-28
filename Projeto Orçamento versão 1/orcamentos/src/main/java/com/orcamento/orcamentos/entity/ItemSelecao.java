@@ -38,6 +38,4 @@ public class ItemSelecao {
     @ManyToOne
     @JoinColumn(name = "idSelecao")
     private Selecao selecao;
-
-	
 }
